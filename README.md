@@ -13,6 +13,6 @@ You will have to download [Java](https://www.java.com/en/) beforehand to run the
 
 Open the `WildAdventure.bat` file to play the game
 
-(https://github.com/windcloak/WildAdventure/blob/master/Screenshot_2.jpg "Title Screen")
+<img src="https://github.com/windcloak/WildAdventure/blob/master/Screenshot_2.jpg" title="Title Screen">
 
-(https://github.com/windcloak/WildAdventure/blob/master/Screenshot_1.jpg "Gameplay")
+<img src="https://github.com/windcloak/WildAdventure/blob/master/Screenshot_1.jpg" title="Gameplay">
