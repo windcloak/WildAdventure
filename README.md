@@ -3,9 +3,9 @@ This is a text-based RPG game where you click on buttons to decide where to go.
 
 There is a fighting system in place where you can fight monsters.
 
-This game was made following Ryisnow's Youtube [tutorial](https://www.youtube.com/watch?v=G5yr4sekAI0). I did not change UI much.
+This game was made following Ryisnow's Youtube [tutorial](https://www.youtube.com/watch?v=G5yr4sekAI0). His guide is extremely helpful.
 
-However, I did change the public variables to private, as well as change the story around and add some of my own methods.
+I did not change UI much. However, I did change the public variables to private, as well as change the story around and add some of my own methods.
 
 ## How to Play
 
