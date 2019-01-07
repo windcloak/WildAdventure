@@ -14,7 +14,7 @@ public class Story {
 	VisibilityManager vm;
 	Player player = new Player();
 	SuperMonster monster, gator;
-	boolean sticks = false, boat = false, goblinCaveAlive = true, gatorRiverAlive = true;
+	boolean sticks, boat, goblinCaveAlive, gatorRiverAlive;
 	String location;
 	int monsterDmg;
 	
@@ -27,10 +27,16 @@ public class Story {
 		
 	}
 	
-	//Default Player Stats
+	//Default Player Setup
 	public void defaultSetup() {
-		//Default HP
+		
+		player.setHP(10);
+		player.setAlive(true);
 		ui.hpLabelNumber.setText(""+ player.getHP());
+		goblinCaveAlive = true;
+		gatorRiverAlive = true;
+		sticks = false;
+		boat = false;
 		
 		//Default weapon
 		player.currentWeapon = new Weapon_Fist();
@@ -63,7 +69,12 @@ public class Story {
 	 */
 	
 	public void field() {
-		ui.mainTextArea.setText("You are in a grassy field. \nWhere do you want to go?");
+		
+		ui.choice2.setVisible(true);
+		ui.choice3.setVisible(true);
+		ui.choice4.setVisible(true);
+		
+		ui.mainTextArea.setText("You are in a grassy field. \n\nWhere do you want to go?");
 		ui.choice1.setText("Cave");
 		ui.choice2.setText("Meadow");
 		ui.choice3.setText("Forest");
@@ -82,13 +93,13 @@ public class Story {
 	public void forest() {
 		if (sticks == false) {
 			//Player gets new weapon (sword)
-			ui.mainTextArea.setText("You are in a forest. You find a sword hidden behind a tree.");
+			ui.mainTextArea.setText("You are in a forest. You find a sword hidden behind a tree.\n\n(You obtained a sword!)");
 			sticks = true;
 			player.currentWeapon = new Weapon_Sword();
 			ui.weaponLabelName.setText(player.currentWeapon.getName());
 		} 
 		else {
-			ui.mainTextArea.setText("You are in a forest. There is not much here.\nWhere do you want to go?");
+			ui.mainTextArea.setText("You are in a forest. There is not much here.\n\nWhere do you want to go?");
 		}
 		ui.choice1.setText("Cave");
 		ui.choice2.setText("Meadow");
@@ -128,7 +139,7 @@ public class Story {
 	 */
 	
 	public void cave() {
-		if (goblinCaveAlive = true) {
+		if (goblinCaveAlive == true) {
 			cave1();
 		}
 		else {
@@ -162,7 +173,7 @@ public class Story {
 	 */
 	
 	public void cave2() {
-		ui.mainTextArea.setText("You are in a cave. The remains of the goblin you killed are still lying around.");
+		ui.mainTextArea.setText("You are in a cave. \n\nThe remains of the dead goblin are still lying around.");
 		ui.choice1.setText("Field");
 		ui.choice2.setText("Meadow");
 		ui.choice3.setText("Forest");
@@ -316,7 +327,8 @@ public class Story {
 	}
 	
 	/**
-	 * Win options depending on player location
+	 * Win options depending on player location 
+	 * Player can win in cave or river
 	 * Monster is dead if player wins
 	 */
 	
@@ -338,7 +350,7 @@ public class Story {
 	
 	public void winCave() {
 		ui.mainTextArea.setText("You defeated the " + monster.getName() + "!\n\nYou explore the cave and find a boat.\n\n(You obtained a boat!)");
-		boat = true;
+		boat = true;	//player received boat
 		
 		ui.choice1.setText("Field");
 		ui.choice2.setText("Cave");
@@ -356,15 +368,15 @@ public class Story {
 	 */
 	
 	public void winRiver() {
-		ui.mainTextArea.setText("You defeated the " + monster.getName() + "!\n\nYou finish crossing the river and see a person in this distance.");
+		ui.mainTextArea.setText("You defeated the " + monster.getName() + "!\n\nYou finish crossing the river and see a person in the distance.");
 		
 		ui.choice1.setText("Go to person");
-		ui.choice2.setText("Go back");
+		ui.choice2.setText("");
 		ui.choice3.setText("");
 		ui.choice4.setText("");
 		
 		game.nextPosition1 = "ending";
-		game.nextPosition2 = "river2";
+		game.nextPosition2 = "";
 		game.nextPosition3 = "";
 		game.nextPosition4 = "";
 	}
@@ -393,10 +405,12 @@ public class Story {
 	 */
 	
 	public void ending() {
-		ui.mainTextArea.setText("You get off your boat and your friend approaches you.\n\n Friend: I'm so glad you're back! Welcome home! <3\n\nTHE END");
+		ui.mainTextArea.setText("You get off your boat and your friend approaches you.\n\n Friend: Welcome home!\n\nTHE END");
+		
+		ui.choice1.setText("Replay");
+		game.nextPosition1 = "toTitle";
 		
 		//Make buttons be invisible
-		ui.choice1.setVisible(false);
 		ui.choice2.setVisible(false);
 		ui.choice3.setVisible(false);
 		ui.choice4.setVisible(false);
@@ -416,17 +430,15 @@ public class Story {
 	 */
 	
 	public void credits() {
-		ui.mainTextArea.setText("Made By: May Guo (@windcloak)\n\nBased on RyiSnow's Youtube tutorial\nCoded in Eclipse");
+		ui.mainTextArea.setText("Made By: May Guo (@windcloak)\n\nBased on RyiSnow's Youtube tutorial\nCoded in Java on Eclipse");
 		
-		ui.choice1.setText("Go Back");
-		ui.choice2.setText("");
-		ui.choice3.setText("");
-		ui.choice4.setText("");
-		
+		ui.choice1.setText("< Go Back");
 		game.nextPosition1 = "toTitle";
-		game.nextPosition2 = "";
-		game.nextPosition3 = "";
-		game.nextPosition4 = "";
+		
+		ui.choice2.setVisible(false);
+		ui.choice3.setVisible(false);
+		ui.choice4.setVisible(false);
+
 	}
 	
 }
