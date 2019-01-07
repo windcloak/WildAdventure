@@ -12,3 +12,7 @@ However, I did change the public variables to private, as well as change the sto
 You will have to download [Java](https://www.java.com/en/) beforehand to run the game
 
 Open the `WildAdventure.bat` file to play the game
+
+(https://github.com/windcloak/WildAdventure/blob/master/Screenshot_2.jpg "Title Screen")
+
+(https://github.com/windcloak/WildAdventure/blob/master/Screenshot_1.jpg "Gameplay")
