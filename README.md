@@ -16,3 +16,7 @@ Open the `WildAdventure.bat` file to play the game
 <img src="https://github.com/windcloak/WildAdventure/blob/master/sc1.jpg" title="Title Screen">
 
 <img src="https://github.com/windcloak/WildAdventure/blob/master/sc2.jpg" title="Gameplay">
+
+## Youtube Walkthrough
+
+[<img src="https://github.com/windcloak/WildAdventure/blob/master/sc1.jpg" title="Title Screen">](https://www.youtube.com/watch?v=8UmtPQA-cE8)
